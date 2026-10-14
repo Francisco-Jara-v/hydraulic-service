@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('arriendo_id')->constrained('arriendos')->cascadeOnDelete();
             $table->foreignId('equipo_items_id')->constrained('equipo_items')->cascadeOnDelete();
             $table->enum('estado',['borrador', 'activo', 'finalizado', 'anulado'])->default('borrador');
-            $$table->decimal('valor_arriendo', 15, 2)->nullable();
+            $table->decimal('valor_arriendo', 15, 2)->nullable();
             $table->decimal('valor_garantia', 15, 2)->nullable();
             $table->text('observacion')->nullable();
             $table->timestamps();
