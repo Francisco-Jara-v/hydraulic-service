@@ -18,7 +18,8 @@ class EquipoFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'tipo' => $this->faker->word(),
+            'descripcion' => $this->faker->sentence(),
         ];
     }
 }

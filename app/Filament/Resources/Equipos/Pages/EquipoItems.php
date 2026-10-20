@@ -6,6 +6,7 @@ use App\Filament\Resources\Equipos\EquipoResource;
 use App\Filament\Resources\Equipos\Schemas\EquipoItemForm;
 use App\Models\Equipo;
 use App\Models\EquipoItem;
+use Dom\Text;
 use Filament\Actions\Action;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\RestoreAction;
@@ -28,6 +29,9 @@ class EquipoItems extends Page implements Tables\Contracts\HasTable
     public function table(Table $table): Table
     {
         $columnas = [
+            Tables\Columns\TextColumn::make('nombre')
+                ->label('Equipo')
+                ->sortable(),
             Tables\Columns\TextColumn::make('codigo_interno')
                 ->label('Código interno')
                 ->searchable(),
@@ -96,6 +100,7 @@ class EquipoItems extends Page implements Tables\Contracts\HasTable
                     )
                     ->action(function (array $data): void {
                         EquipoItem::create([
+                            'nombre' => $this->record->tipo.' '.$data['observacion'],
                             'equipo_id' => $this->record->id,
                             'codigo_interno' => $data['codigo_interno'],
                             'serie' => $data['serie'] ?? null,

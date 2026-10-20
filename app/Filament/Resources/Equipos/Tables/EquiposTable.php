@@ -22,6 +22,8 @@ class EquiposTable
             ->columns([
                 TextColumn::make('tipo')
                     ->searchable(),
+                TextColumn::make('descripcion')
+                    ->searchable(),
                 TextColumn::make('deleted_at')
                     ->dateTime()
                     ->sortable()

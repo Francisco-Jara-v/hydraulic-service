@@ -13,7 +13,16 @@ return new class extends Migration
     {
         Schema::create('arriendos', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('cliente_id')->constrained('clientes')->onDelete('cascade');
+            $table->date('fecha_inicio');
+            $table->date('fecha_fin')->nullable();
+            $table->string('guia_despacho')->nullable();
+            $table->decimal('monto_total', 20, 2)->default(0);
+            $table->string('ruta_contrato_pdf')->nullable();
+            $table->string('estado')->default('pendiente');
+            $table->text('observaciones')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

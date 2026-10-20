@@ -16,6 +16,7 @@ class EquipoItem extends Model
     protected $table = 'equipo_items';
 
     protected $fillable = [
+        'nombre',
         'equipo_id',
         'codigo_interno',
         'serie',
