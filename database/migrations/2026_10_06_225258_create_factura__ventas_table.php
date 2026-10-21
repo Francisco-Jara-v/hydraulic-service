@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('factura__ventas', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
             $table->integer('cliente_id')->index('cliente_nombre_idx');
             $table->enum('tipo_documento', ['DECLARACION DE INGRESO', 'FACTURA', 'FACTURA ELECTRONICA', 'FACTURA DE COMPRA', 'FACTURA DE COMPRA ELECTRONICA', 'FACTURA DE INICIO', 'FACTURA EXENTA', 'FACTURA ELECTRONICA EXENTA', 'LIQUIDACION FACTURA', 'LIQUIDACION FACTURA EXENTA', 'NOTA DE CREDITO', 'NOTA DE CREDITO ELECTRONICA', 'NOTA DE DEBITO', 'NOTA DE DEBITO ELECTRONICA', 'SOLICITUD REGISTRO FACTURA']);
             $table->integer('folio')->unique('factura_ventas_folio_unique');
