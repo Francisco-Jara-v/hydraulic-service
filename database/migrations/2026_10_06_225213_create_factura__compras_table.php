@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('factura__compras', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->id();
             $table->string('proveedor_nombre');
             $table->string('proveedor_rut', 20)->nullable();
             $table->string('proveedor_giro')->nullable();
