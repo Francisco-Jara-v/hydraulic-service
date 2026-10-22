@@ -18,7 +18,9 @@ class FacturaVentaResource extends Resource
 {
     protected static ?string $model = Factura_Venta::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+
+    protected static ?string $label = 'Factura de Venta';
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedDocumentText;
 
     protected static ?string $recordTitleAttribute = 'Factura_Venta';
 

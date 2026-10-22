@@ -20,7 +20,7 @@ class ArriendoResource extends Resource
 {
     protected static ?string $model = Arriendo::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedClipboardDocumentList;
 
     protected static ?string $recordTitleAttribute = 'Arriendo';
 

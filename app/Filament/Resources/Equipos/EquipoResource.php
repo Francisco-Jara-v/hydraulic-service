@@ -21,7 +21,7 @@ class EquipoResource extends Resource
 {
     protected static ?string $model = Equipo::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedWrenchScrewdriver;
 
     protected static ?string $recordTitleAttribute = 'Equipo';
 

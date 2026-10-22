@@ -18,7 +18,7 @@ class ArriendoDetalle extends Model
         'equipo_items_id',
         'valor_arriendo',
         'valor_garantia',
-        'observaciones',
+        'observacion',
     ];
 
     protected function casts(): array

@@ -18,7 +18,8 @@ class FacturaCompraResource extends Resource
 {
     protected static ?string $model = Factura_Compra::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static ?string $label = 'Factura de Compra';
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedDocumentChartBar;
 
     protected static ?string $recordTitleAttribute = 'Factura_Compra';
 

@@ -29,7 +29,7 @@ class ClienteResource extends Resource
 {
     protected static ?string $model = Cliente::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedUserGroup;
 
     protected static ?string $recordTitleAttribute = 'Cliente';
 
@@ -38,16 +38,20 @@ class ClienteResource extends Resource
         return $schema
             ->components([
                 TextInput::make('company_name')
+                    ->label('Nombre de la Empresa')
                     ->required(),
                 TextInput::make('giro'),
                 TextInput::make('rut')
                     ->required(),
-                TextInput::make('address'),
-                TextInput::make('city'),
+                TextInput::make('address')
+                    ->label('Dirección'),
+                TextInput::make('city')
+                    ->label('Ciudad'),
                 TextInput::make('email')
-                    ->label('Email address')
+                    ->label('Correo Electrónico')
                     ->email(),
                 TextInput::make('phone')
+                    ->label('Teléfono')
                     ->tel(),
             ])
             ->columns(2);
@@ -57,18 +61,26 @@ class ClienteResource extends Resource
     {
         return $schema
             ->components([
-                TextEntry::make('company_name'),
-                TextEntry::make('giro')
+                TextEntry::make('company_name')
+                    ->label('Nombre de la Empresa')
                     ->placeholder('-'),
-                TextEntry::make('rut'),
+                TextEntry::make('giro')
+                    ->label('Giro')
+                    ->placeholder('-'),
+                TextEntry::make('rut')
+                    ->label('RUT')
+                    ->placeholder('-'),
                 TextEntry::make('address')
+                    ->label('Dirección')
                     ->placeholder('-'),
                 TextEntry::make('city')
+                    ->label('Ciudad')
                     ->placeholder('-'),
                 TextEntry::make('email')
-                    ->label('Email address')
+                    ->label('Correo Electrónico')
                     ->placeholder('-'),
                 TextEntry::make('phone')
+                    ->label('Teléfono')
                     ->placeholder('-'),
                 TextEntry::make('deleted_at')
                     ->dateTime()

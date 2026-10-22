@@ -108,12 +108,12 @@ class ArriendoForm
                         Repeater::make('detalles')
                             ->relationship()
                             ->schema([
-                                Select::make('equipo_item_id')
+                                Select::make('equipo_items_id')
                                     ->label('Equipo')
                                     ->options(
                                         EquipoItem::query()
                                             ->with('equipo')
-                                            ->where('estado', 'disponible')
+                                            ->where('estado', 'Disponible')
                                             ->get()
                                             ->mapWithKeys(fn (EquipoItem $item) => [
                                                 $item->id => sprintf(
@@ -153,7 +153,7 @@ class ArriendoForm
                                         ->prefix('$')
                                         ->readOnly(),
 
-                                    Textarea::make('observaciones')
+                                    Textarea::make('observacion')
                                         ->label('Observación del equipo')
                                         ->columnSpanFull(),
                                 ])
@@ -167,29 +167,26 @@ class ArriendoForm
                         ->columnSpanFull(),
                 
                 Section::make('Observaciones y Archivos')->schema([
-                    Textarea::make('observaciones')
+                    Textarea::make('observacion')
                         ->default(null)
                         ->columnSpanFull(),
                     TextInput::make('ruta_contrato_pdf')
                         ->default(null)
                         ->hidden(),
+                    TextInput::make('monto_total')
+                    ->required()
+                    ->numeric()
+                    ->prefix('$')
+                    ->default(0.0)
                 ])
                 ->columns(1)
                 ->columnSpanFull(), 
 
 
-                TextInput::make('monto_total')
-                    ->required()
-                    ->numeric()
-                    ->default(0.0)
-                    ->columnSpanFull(),
                 
-                TextInput::make('ruta_contrato_pdf')
-                    ->default(null)
-                    ->hidden(),
-                Textarea::make('observaciones')
-                    ->default(null)
-                    ->columnSpanFull(),
+                    
+                
+                
             ]);
     }
 }
